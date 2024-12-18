@@ -1,5 +1,4 @@
-import utils as u
+from util.data_to_csv import download_data_to_csv
 
 if __name__ == "__main__":
-    # insert_time_series_data()
-    u.download_data_to_csv("BTC")
+    download_data_to_csv("BTC")

@@ -1,6 +1,5 @@
 import http.client
 import json
-import csv
 from datetime import datetime
 from pymongo import MongoClient
 from config import MONGO_URI, CRYPTO_DB, USERNAME, PASSWORD, API_KEY, TWITTER_DB
@@ -49,7 +48,7 @@ def insert_market_data(symbol="BTC"):
           "time": current_time,
       }
       
-      print(f"Inserting data: {insert_data}")
+      # print(f"Inserting data: {insert_data}")
       crypto_collection.insert_one(insert_data)
     else:
         print("No data received for the symbol")
@@ -106,7 +105,7 @@ def insert_twitter_data(query="bitcoin", symbol="BTC"):
           "time": current_time,
         })
       
-      print(f"Inserting data: {insert_data}")
+      # print(f"Inserting data: {insert_data}")
       twitter_collection.insert_many(insert_data)
     else:
         print("No data received for the symbol")
@@ -114,17 +113,6 @@ def insert_twitter_data(query="bitcoin", symbol="BTC"):
   except Exception as e:
     print(f"Error in twitter API: {str(e)}")
 
-
-def download_data_to_csv(symbol="BTC"):
-  query = {"symbol": symbol}
-  try:
-    result = list(twitter_collection.find(query).sort('timestamp', -1))
-    with open('output.csv', 'w') as csv_file:
-      writer = csv.DictWriter(csv_file, fieldnames=result[0].keys())
-      writer.writeheader()
-      writer.writerows(result)
-  except Exception as e:
-    print(f"Error in querying data: {str(e)}")
 
 
 
