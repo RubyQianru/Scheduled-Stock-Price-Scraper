@@ -13,7 +13,6 @@ twitter_collection = twitter_db["twitter"]
 
 def insert_market_data(symbol="BTC"):
   try:
-    # API call
     conn = http.client.HTTPSConnection("real-time-quotes1.p.rapidapi.com")
     headers = {
         'x-rapidapi-key': API_KEY,
@@ -48,7 +47,6 @@ def insert_market_data(symbol="BTC"):
           "time": current_time,
       }
       
-      # print(f"Inserting data: {insert_data}")
       crypto_collection.insert_one(insert_data)
     else:
         print("No data received for the symbol")
@@ -60,7 +58,6 @@ def insert_market_data(symbol="BTC"):
 def insert_twitter_data(query="bitcoin", symbol="BTC"):
 
   try:
-    # API call
     conn = http.client.HTTPSConnection("twitter-api45.p.rapidapi.com")
 
     headers = {
@@ -105,7 +102,6 @@ def insert_twitter_data(query="bitcoin", symbol="BTC"):
           "time": current_time,
         })
       
-      # print(f"Inserting data: {insert_data}")
       twitter_collection.insert_many(insert_data)
     else:
         print("No data received for the symbol")

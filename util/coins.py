@@ -8,6 +8,26 @@ coins = [
     'query': "ethereum", 
   },
   {
+    'symbol': "XRP",
+    'query': "XRP", 
+  },
+  {
+    'symbol': "BNB",
+    'query': "BNB", 
+  },
+  {
+    'symbol': "TRX",
+    'query': "TRON", 
+  },
+  {
+    'symbol': "SOL",
+    'query': "solana", 
+  },
+  {
+    'symbol': "ADA",
+    'query': "Cardano", 
+  },
+  {
     'symbol': "SOL",
     'query': "solana", 
   },
@@ -23,8 +43,8 @@ coins = [
     'symbol': "BONK",
     'query': "bonk", 
   },
-  {
-    'symbol': "PENGU",
-    'query': "Pudgy Penguins", 
-  },
+  # {
+  #   'symbol': "PENGU",
+  #   'query': "Pudgy Penguins", 
+  # },
 ]
